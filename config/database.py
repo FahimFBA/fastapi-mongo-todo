@@ -8,10 +8,11 @@ load_dotenv()
 # Retrieve the MongoDB credentials from the environment variables
 username = os.getenv("MONGO_USERNAME")
 password = os.getenv("MONGO_PASSWORD")
+cluster = os.getenv("MONGO_CLUSTER_URL")
 
 # Create the MongoDB connection URI using the loaded credentials
-uri = f"mongodb+srv://{username}:{
-    password}@cluster0.jbxak.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+uri = f"mongodb+srv://{username}:{password}@{
+    cluster}/?retryWrites=true&w=majority&appName=Cluster0"
 
 # Initialize MongoDB client and access the database and collection
 client = MongoClient(uri)
